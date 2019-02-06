@@ -1,3 +1,11 @@
+<%@page import="java.util.*,java.sql.*" %>
+
+<%!
+    public int x;
+    int calculateInterest(int amt, int r, int t){
+       return (amt*r*t)/100;
+    }    
+%>
 <%
     String s1=request.getParameter("t1");
     String s2=request.getParameter("t2");
@@ -7,7 +15,8 @@
     if(time<5){
         rate=8;
     }
-    int interest=(amount*rate*time)/100;
+    //int interest=(amount*rate*time)/100;
+    int interest=calculateInterest(amount, rate,time);
     int net=amount+interest;
 %>
 <html>
@@ -17,15 +26,15 @@
             <tbody>
                 <tr>
                     <td>Amount</td>
-                    <td><% out.println(amount); %></td>
+                    <td><%=amount%></td>
                 </tr>
                 <tr>
                     <td>Time</td>
-                    <td><% out.println(time);%></td>
+                    <td><%=time%></td>
                 </tr>
                 <tr>
                     <td>Rate</td>
-                    <td><%out.println(rate);%></td>
+                    <td><%=rate%></td>
                 </tr>
                 <tr>
                     <td>Interest</td>
