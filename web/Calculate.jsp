@@ -1,4 +1,6 @@
-<%@page import="java.util.*,java.sql.*" %>
+<%@taglib uri="/WEB-INF/tlds/mylib.tld" prefix="data" %>
+<%@include file="header.jsp" %>
+<%@page  session="true" isThreadSafe="false"  import="java.util.*,java.sql.*" %>
 
 <%!
     public int x;
@@ -21,6 +23,7 @@
 %>
 <html>
     <body>
+        <data:mobile/>
         <h2>Interest Details</h2>
         <table border="2" width="2" cellspacing="2" cellpadding="2">
             <tbody>
@@ -46,6 +49,7 @@
                 </tr>
             </tbody>
         </table>
-        <a href="index.html">Home</a>
+        <a href="index.jsp">Home</a>
     </body>
 </html>
+This App Is Written By  : <%=session.getAttribute("author")%>
